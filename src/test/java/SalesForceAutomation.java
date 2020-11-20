@@ -7,6 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
 import sfdcWebapgeproj.sfdcWebpage;
 
 
@@ -21,15 +22,16 @@ import java.util.concurrent.TimeUnit;
 
 public class SalesForceAutomation extends sfdcWebpage {
 
-
+    //@Test
     public static void main(String[] args) {
-//        LogintestError1();
+        LogintestError1();
         checkRememberMe3();
 //          LoginToSalesforce2();
-//         forgotPassword4();
-//         validateLoginErrorMsg();
-//        editProfile();
+         forgotPassword4();
+         validateLoginErrorMsg();
+        editProfile();
     }
+    @Test
     public static void checkRememberMe3() {
         launchChromeBrowser();
 //        WebDriverManager.chromedriver().setup();
