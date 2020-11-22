@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2020-11-22T14:04:38Z" name="Default Suite" finished-at="2020-11-22T14:04:44Z" duration-ms="5919">
+    <groups>
+    </groups>
+    <test started-at="2020-11-22T14:04:38Z" name="Selenium" finished-at="2020-11-22T14:04:44Z" duration-ms="5919">
+      <class name="CreateAccountFunctionality">
+        <test-method is-config="true" signature="launchApplicatn(java.lang.reflect.Method)[pri:0, instance:CreateAccountFunctionality@2ef3eef9]" started-at="2020-11-22T14:04:38Z" name="launchApplicatn" finished-at="2020-11-22T14:04:40Z" duration-ms="2628" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void CreateAccountFunctionality.AccountsTab_TC08(java.lang.String,java.lang.String) throws java.io.IOException]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launchApplicatn -->
+        <test-method signature="AccountsTab_TC08(java.lang.String, java.lang.String)[pri:1, instance:CreateAccountFunctionality@2ef3eef9]" started-at="2020-11-22T14:04:40Z" name="AccountsTab_TC08" data-provider="valid_loginData" finished-at="2020-11-22T14:04:43Z" duration-ms="2992" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[priyaramoji@gmail.com]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[priya345]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- AccountsTab_TC08 -->
+        <test-method is-config="true" signature="closeApp()[pri:0, instance:CreateAccountFunctionality@2ef3eef9]" started-at="2020-11-22T14:04:43Z" name="closeApp" finished-at="2020-11-22T14:04:43Z" duration-ms="58" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeApp -->
+        <test-method is-config="true" signature="endReport()[pri:0, instance:CreateAccountFunctionality@2ef3eef9]" started-at="2020-11-22T14:04:43Z" name="endReport" finished-at="2020-11-22T14:04:44Z" duration-ms="214" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- endReport -->
+      </class> <!-- CreateAccountFunctionality -->
+    </test> <!-- Selenium -->
+  </suite> <!-- Default Suite -->
+</testng-results>

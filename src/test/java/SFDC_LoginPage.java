@@ -1,5 +1,6 @@
 //import com.sun.tools.javac.util.Assert;
 //import com.sun.tools.javac.util.Assert;
+import com.aventstack.extentreports.ExtentReports;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -7,48 +8,57 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.Test;
+import org.testng.annotations.*;
 import sfdcWebapgeproj.sfdcWebpage;
+import com.aventstack.extentreports.Status;
 
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.lang.reflect.Method;
 import java.time.Duration;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 
-public class SalesForceAutomation extends sfdcWebpage {
+public class SFDC_LoginPage extends sfdcWebpage {
 
-    //@Test
-    public static void main(String[] args) {
-        LogintestError1();
-        checkRememberMe3();
-//          LoginToSalesforce2();
-         forgotPassword4();
-         validateLoginErrorMsg();
-        editProfile();
-    }
-    @Test
-    public static void checkRememberMe3() {
+//    //@Test
+//    public static void main(String[] args) {
+////        LogintestError1();
+////        checkRememberMe3();
+//////          LoginToSalesforce2();
+////         forgotPassword4();
+////         //validateLoginErrorMsg(String username , String pass);
+////        editProfile();
+//    }
+    @BeforeMethod
+   public void launchApplicatn(Method testname){
+        //ExtentReports report = ExtentReports.class(TestNGExample.class);
+        test = extent.createTest(testname.getName());
         launchChromeBrowser();
-//        WebDriverManager.chromedriver().setup();
-//        driver = new ChromeDriver();
-//        driver.get("https://xxx-b-dev-ed.my.salesforce.com/");
-         String abc = prop.getProperty("URL");
-         driver.get(abc);
-        //driverGet("URL");
         maximizePage();
         implicitWait(10);
+    }
+   @AfterMethod
+   public void closeApp(){
+        closeChromeBrowser();
+   }
+
+   @AfterTest
+   public void endReport(){
+        extent.flush();
+   }
+    public void checkRememberMe3(String usrname, String pwd) throws IOException {
         WebElement a = driver.findElement(By.xpath("//input[@id='username']"));
         WebElement b = driver.findElement(By.xpath("//input[@id='password']"));
         WebElement c = driver.findElement(By.xpath("//input[@id='Login']"));
         WebElement rememberMe = driver.findElement(By.xpath("//input[@id='rememberUn']"));
-//      String usrname = prop.getProperty("username");
-        String usrname = "priyaramoji@gmail.com";
-        String pwd ="priya345";
+////      String usrname = prop.getProperty("username");
+//        String usrname = "priyaramoji@gmail.com";
+//        String pwd ="priya345";
 //        DriverBase.driverFindWebElement(HomeWebelement.get_username).sendKeys(usrname);
 //        a.sendKeys(prop.getProperty("username"));
         sendValue(a,usrname);
@@ -83,13 +93,11 @@ public class SalesForceAutomation extends sfdcWebpage {
         } catch (Exception e) {
             System.out.println("Exception occurred" +e);
         }
-        driver.close();
     }
 
 
         public static void LogintestError1(){
            launchChromeBrowser();
-            //driverGet("URL");
             maximizePage();
             implicitWait(10);
             WebElement a = driver.findElement(By.xpath("//input[@id='username']"));
@@ -127,20 +135,17 @@ public class SalesForceAutomation extends sfdcWebpage {
             driver.close();
         }
 
-        public static void validateLoginErrorMsg(){
-            launchChromeBrowser();
-            driver.get("https://xxx-b-dev-ed.my.salesforce.com/");
-            maximizePage();
-            implicitWait(10);
+        @Test(dataProvider = "Invalid_loginData", dataProviderClass = dataprovider.class, invocationCount = 2)
+        public static void validateLoginErrorMsg(String username, String pass){
             WebElement a = driver.findElement(By.xpath("//input[@id='username']"));
             WebElement b = driver.findElement(By.xpath("//input[@id='password']"));
             WebElement c = driver.findElement(By.xpath("//input[@id='Login']"));
-           sendValue(a,"dsdsds");
-            sendValue(b,"dfdfd");
+           sendValue(a,username);
+            sendValue(b,pass);
             clicktheElement(c);
             WebElement errormsg = driver.findElement(By.xpath("//*[@id=\'error\']"));
             System.out.println("Error msg is displayed  " +errormsg.getText());
-            driver.close();
+          //  driver.close();
         }
 
         public static void editProfile(){

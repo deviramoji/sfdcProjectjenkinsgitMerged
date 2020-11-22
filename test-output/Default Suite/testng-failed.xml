@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="Selenium(failed)">
+    <classes>
+      <class name="CreateAccountFunctionality">
+        <methods>
+          <include name="launchApplicatn"/>
+          <include name="AccountsTab_TC08" invocation-numbers="0"/>
+          <include name="endReport"/>
+          <include name="closeApp"/>
+        </methods>
+      </class> <!-- CreateAccountFunctionality -->
+    </classes>
+  </test> <!-- Selenium(failed) -->
+</suite> <!-- Failed suite [Default Suite] -->
